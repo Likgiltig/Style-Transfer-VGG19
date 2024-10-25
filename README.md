@@ -7,6 +7,8 @@
 * TensorFlow
 * Pillow (PIL)
 * NumPy
+* argparse
+
 
 **Installation:**
 1. Clone this repository:
@@ -15,16 +17,44 @@
    ```
 2. Install the required dependencies:
    ```bash
-   pip install tensorflow pillow numpy
+   pip install tensorflow pillow numpy argparse
    ```
-**Usage:**
-1. Move the content image and the style image to the script location.
-2. Change the content_path and style_path variables to fit the image filenames.
-3. Run script
+   
+**Basic Usage:**
+   ```bash
+    python style_transfer.py --content path/to/content.jpg --style path/to/style.jpg
+   ```
 
-**Optional:**
-* Change the epoch_ammount variable to change the amount of times it will do the Style Transfer.
-* Change the image_size variable to set the size you want on the output images (This will affect performance).
+This will run with default settings:
+    - 10 epochs
+    - 512px maximum image dimension
+    - Output saved to 'output' directory
+    - Intermediate results saved every epoch
+    - Final image named 'final_stylized.png'
+
+**Advanced usage examples:**
+
+High-quality output with more epochs and larger size:
+   ```bash
+    python style_transfer.py \
+        --content photos/portrait.jpg \
+        --style art/vangogh.jpg \
+        --epochs 20 \
+        --image-size 1024 \
+        --output-dir vangogh_style \
+        --final-name vangogh_portrait.png
+   ```
+
+Quick draft with fewer epochs and smaller size:
+   ```bash
+    python style_transfer.py \
+        --content photos/landscape.jpg \
+        --style art/monet.jpg \
+        --epochs 5 \
+        --image-size 256 \
+        --save-freq 1
+   ```
 
 **Recommendation:**
+
 Using a virtual environment is highly recommended to isolate project dependencies and avoid conflicts with other Python projects. This ensures a cleaner and more predictable development environment.
