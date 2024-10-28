@@ -2,6 +2,11 @@
 
 **A Python project demonstrating style transfer using the VGG19 model.**
 
+**What is style transfer?**
+
+Neural style transfer is a technique that allows you to take two images - a content image and a style image - and create a new image that combines the content of the first with the style of the second.
+
+
 **Prerequisites:**
 * Python 3.x
 * TensorFlow
